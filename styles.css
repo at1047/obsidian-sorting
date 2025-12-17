@@ -1,41 +1,9 @@
-/* Hide Sorting Numbers Plugin Styles */
-
-/* Ensure the hidden numbers don't take up space */
-.hide-sorting-numbers-enabled .sorting-number-hidden {
-    display: none !important;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    position: absolute;
-    left: -9999px;
-}
-
-/* Optional: Add a subtle indicator that numbers are hidden (can be removed) */
-.hide-sorting-numbers-enabled .tree-item-inner[data-number-hidden]::before {
-    /* Uncomment the line below to add a small dot indicator */
-    /* content: "• ";
-    opacity: 0.3;
-    margin-right: 2px; */
-}
-
-/* Ensure text alignment looks good */
-.hide-sorting-numbers-enabled .sorting-text-visible {
-    display: inline;
-}
-
-/* Hide numbers in inline titles and view headers using CSS */
-.hide-sorting-numbers-enabled .inline-title[data-has-sort-number],
-.hide-sorting-numbers-enabled .view-header-title[data-has-sort-number] {
+/* Hide sorting numbers - use CSS to replace text with cleaned version */
+.hide-sorting-numbers [data-display-text] {
     font-size: 0;
 }
 
-.hide-sorting-numbers-enabled .inline-title[data-has-sort-number]::after,
-.hide-sorting-numbers-enabled .view-header-title[data-has-sort-number]::after {
+.hide-sorting-numbers [data-display-text]::after {
     content: attr(data-display-text);
-    font-size: var(--inline-title-size, 2.25em);
+    font-size: var(--original-font-size);
 }
-
-.hide-sorting-numbers-enabled .view-header-title[data-has-sort-number]::after {
-    font-size: var(--header-height, 1em);
-}
-
